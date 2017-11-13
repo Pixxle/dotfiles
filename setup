@@ -49,6 +49,13 @@ else
 	while true; do read -n 1 response; if grep -i '[yn]' <<< $response ;then break; fi; done
 	if [ $response=="y" ];then
 		chsh -s $(which zsh)
+        if [ $? -ne '0' ]; then
+            echo "Was unable to set ZSH as default shell, do you want to execute it as first command of bash?"
+            while true; do read -n 1 response; if grep -i '[yn]' <<< $response ;then break; fi; done
+            if [ $response=="y" ];then
+                echo 'zsh' > $HOME/.bashrc
+            fi
+        fi
 	fi
 fi
 
@@ -57,4 +64,5 @@ while true; do read -n 1 response; if grep -i '[yn]' <<< $response ;then break; 
 if [ $response=="y" ]; then
 	echo "source '$HOME/dotfiles/zshrc'" > $HOME/.zshrc
 	source $HOME/dotfiles/zshinstallation.sh
+    echo 'source-file ~/dotfiles/.tmux.conf' > $HOME/.tmux.conf 
 fi
