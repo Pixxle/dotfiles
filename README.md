@@ -1,9 +1,6 @@
 # Dotfiles configuration
 
 ## VIM:
-* Install Vundle
-* Copy vimrc
-* Setup color schemes
 `
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp vimrc ~/.vimrc
