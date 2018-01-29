@@ -16,6 +16,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'fatih/vim-go'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,3 +57,12 @@ map <SPACE>c <Plug>(easymotion-bd-f)
 map <leader>gw :Gwrite<CR>
 map <leader>gc :Gcommit -v -q<CR>
 map <leader>gp :Gpush<CR>
+
+" Go configuration
+map <leader>gob :GoBuild<CR>
+map <leader>gor :GoRun<CR>
+map <leader>got :GoTest<CR>
+map <leader>god :GoDef<CR>
+
+
+map <leader>b :BuffergatorToggle<CR>
