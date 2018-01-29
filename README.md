@@ -1,4 +1,2 @@
 # Dotfiles configuration
 
-test
-
