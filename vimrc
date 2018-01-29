@@ -50,3 +50,8 @@ map <SPACE>  <Plug>(easymotion-sn)
 map <SPACE>l <Plug>(easymotion-bd-jk)
 map <SPACE>w <Plug>(easymotion-bd-w)
 map <SPACE>c <Plug>(easymotion-bd-f)
+
+" Git configuration
+map <leader>gw :Gwrite<CR>
+map <leader>gc :Gcommit -v -q<CR>
+map <leader>gp :Gpush<CR>
