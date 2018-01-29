@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+set noswapfile
 filetype off                  " required
 colorscheme molokai
 
@@ -43,9 +44,8 @@ map <leader>n :NERDTreeToggle<CR>
 
 
 " CTRLP configuration
-map <leader>pf :CtrlP<CR>
-map <leader>pb :CtrlPBuffer<CR>
-map <leader>pm :CtrlPMixed<CR>
+map <leader>ff :CtrlP<CR>
+map <leader>fb :CtrlPBuffer<CR>
 
 " Easy motion
 map <SPACE>  <Plug>(easymotion-sn)
