@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 set noswapfile
 filetype off                  " required
-colorscheme molokai
 
 
 " set the runtime path to include Vundle and initialize
@@ -22,6 +21,8 @@ Plugin 'jeetsukumaran/vim-buffergator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+colorscheme molokai
 
 " Remove arrow keys, i default back to them if i have them available
 noremap <Up> <NOP>
