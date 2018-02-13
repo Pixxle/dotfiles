@@ -22,7 +22,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme molokai
+colorscheme desert
 syntax on
 
 " Remove arrow keys, i default back to them if i have them available
