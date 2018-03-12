@@ -1,7 +1,12 @@
 set nocompatible              " be iMproved, required
 set noswapfile
-filetype off                  " required
+filetype off    " required
 
+" Tab is 4 spaces, I'm not a savage
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -18,6 +23,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'andviro/flake8-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -66,5 +72,15 @@ map <leader>gor :GoRun<CR>
 map <leader>got :GoTest<CR>
 map <leader>god :GoDef<CR>
 
-
+" Buffergator configuration
 map <leader>b :BuffergatorToggle<CR>
+
+" Flake8 Configuration 
+let g:PyFlakeOnWrite = 1
+map <leader>pyf :PyFlake<CR>
+
+" Jedi-vim configuration
+let g:jedi#rename_command = "<leader>pyr"
+let g:jedi#documentation_command = "<leader>pydoc"
+let g:jedi#goto_command = "<leader>pyg"
+let g:jedi#completions_command = "<leader>pyc"
