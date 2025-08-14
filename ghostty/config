@@ -28,3 +28,4 @@ keybind = super+shift+k=resize_split:up,100
 
 
 keybind = global:ctrl+q=toggle_quick_terminal
+keybind = shift+enter=text:\n
