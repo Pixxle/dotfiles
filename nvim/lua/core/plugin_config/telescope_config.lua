@@ -18,6 +18,18 @@ require("telescope").setup({
 		grep_string = {
 			theme = "ivy",
 		},
+		diagnostics = {
+			theme = "ivy",
+			initial_mode = "normal",
+			wrap_results = true,
+		},
+		lsp_references = {
+			theme = "ivy",
+			initial_mode = "normal",
+		},
+		lsp_document_symbols = {
+			theme = "ivy",
+		},
 	},
 	extensions = {
 		fzf = {},
@@ -48,3 +60,28 @@ vim.keymap.set("n", "<leader>ep", function()
 		cwd = "~/.config/nvim",
 	})
 end)
+
+-- Telescope diagnostics (FZF-style popup)
+vim.keymap.set("n", "<leader>dt", function()
+	require("telescope.builtin").diagnostics({
+		bufnr = nil, -- all buffers
+	})
+end, { desc = "All Diagnostics (Telescope)" })
+
+vim.keymap.set("n", "<leader>db", function()
+	require("telescope.builtin").diagnostics({
+		bufnr = 0, -- current buffer only
+	})
+end, { desc = "Buffer Diagnostics (Telescope)" })
+
+-- Quick diagnostic popup for current line
+vim.keymap.set("n", "<leader>dd", function()
+	local line_diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+	if #line_diagnostics > 0 then
+		-- If there are diagnostics on current line, show telescope picker with just those
+		require("telescope.builtin").diagnostics({
+			bufnr = 0,
+			line_width = "full",
+		})
+	end
+end, { desc = "Show Diagnostics (Current Line)" })

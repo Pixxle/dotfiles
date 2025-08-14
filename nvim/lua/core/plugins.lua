@@ -89,4 +89,15 @@ require("lazy").setup({
 
 	--Mini: Plugin collection
 	{ "echasnovski/mini.nvim", version = false },
+
+	-- Trouble: Better diagnostic display (for quickfix/location list)
+	{
+		"folke/trouble.nvim",
+		opts = {},
+		cmd = "Trouble",
+		keys = {
+			{ "<leader>dq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
+			{ "<leader>dl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+		},
+	},
 })
