@@ -7,7 +7,7 @@ local fmt = string.format
 
 -------------------- OPTIONS -------------------------------
 opt.background = "dark"
-vim.cmd("colorscheme github_dark_high_contrast")
+vim.cmd("colorscheme tokyonight")
 opt.completeopt = { "menuone", "noinsert", "noselect" } -- Completion options
 opt.cursorline = true
 opt.expandtab = true -- Use spaces instead of tabs
