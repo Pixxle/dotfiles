@@ -33,6 +33,10 @@ end
 vim.keymap.set("n", "<leader>fd", function()
 	local start_pos, end_pos = get_two_positions()
 
+	-- Get text between positions and copy to register
+	local lines = vim.api.nvim_buf_get_text(0, start_pos[1] - 1, start_pos[2], end_pos[1] - 1, end_pos[2], {})
+	vim.fn.setreg('"', table.concat(lines, "\n"))
+
 	-- Delete text between positions
 	vim.api.nvim_buf_set_text(0, start_pos[1] - 1, start_pos[2], end_pos[1] - 1, end_pos[2], { "" })
 end)
