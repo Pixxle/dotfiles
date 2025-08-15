@@ -42,7 +42,7 @@ require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 
 	-- Hop:
-	{ "smoka7/hop.nvim" },
+	{ "smoka7/hop.nvim", keys = "etovxqpdygfblzhckisuran" },
 
 	-- Harpoon
 	{
