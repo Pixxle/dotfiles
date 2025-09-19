@@ -40,6 +40,7 @@ install-common-tools() {
     "bat"
     "eza"
     "htop"
+    "iterm2"
     "kubectl"
     "nvm"
     "npm"
