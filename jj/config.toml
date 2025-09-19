@@ -1,0 +1,16 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "pixxle"
+email = "dennis@vinterfjard.com"
+
+[ui]
+editor = "nvim"
+default-command = "log"
+pager = ":builtin"
+
+
+[aliases]
+sync = ['git', 'fetch', '--all-remotes']
+evolve = ['rebase', '--skip-empty', '-d', 'main']
+
