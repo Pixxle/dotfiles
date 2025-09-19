@@ -11,10 +11,16 @@ alias pretty='prettier --write "**/*.{ts, tsx, js, jsx}"'
 # this is separated to ensure that i don't commit my work.sh file
 gitignoredfile=~/.config/shell/functions.d/gitignored.sh
 if [ ! -f $gitignoredfile ]; then
-    echo "No hidden shell file found, creating one"
-    touch $gitignoredfile
+  echo "No hidden shell file found, creating one"
+  touch $gitignoredfile
 fi
 
 eval "$(zoxide init zsh)"
 
 ZSH_THEME="robbyrussell"
+
+# use vi key bindings
+bindkey -v
+# avoid the annoying backspace/delete issue
+# where backspace stops deleting characters
+bindkey -v '^?' backward-delete-char

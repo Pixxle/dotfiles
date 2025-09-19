@@ -8,6 +8,7 @@
 !/tmux/tmux.conf
 !/install.sh 
 !/CLAUDE.md
+!/aerospace.toml
 
 # Folders that are not ignored
 !/nvim/
@@ -23,4 +24,5 @@
 # Ignore user-specific files
 /shell/functions.d/gitignored.sh
 /shell/env.sh
+nvim/lazy-lock.json
 

@@ -59,15 +59,18 @@ install-common-tools() {
   local -a taps=(
     "hashicorp/tap/terraform"
     "derailed/k9s/k9s"
+    "FelixKratz/formulae/borders"
   )
 
   local -a casks=(
     "homebrew/cask-fonts"
+    "nikitabobko/tap/aerospace"
   )
 
   _install_packages "${packages[@]}"
   _install_taps "${taps[@]}"
   _install_casks "${casks[@]}"
+  _copy_aerospace_config
 }
 
 # Install regular packages
@@ -108,4 +111,17 @@ _install_casks() {
     echo "Installing $cask_name..."
     brew install --cask "$cask_name" || echo "Failed to install $cask_name"
   done
+}
+
+# Copy aerospace configuration
+_copy_aerospace_config() {
+  local config_source="$HOME/.config/aerospace.toml"
+  local config_dest="$HOME/.aerospace.toml"
+
+  if [ -f "$config_source" ]; then
+    echo "Copying aerospace configuration..."
+    cp "$config_source" "$config_dest" || echo "Failed to copy aerospace config"
+  else
+    echo "Aerospace config not found at $config_source"
+  fi
 }
