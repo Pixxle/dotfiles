@@ -12,6 +12,7 @@
 # Folders that are not ignored
 !/nvim/
 !/shell/
+!/terminal-themes/
 !/ghostty/
 !/yazi/
 !/claude/
