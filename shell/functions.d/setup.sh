@@ -47,13 +47,11 @@ install-common-tools() {
     "zoxide"
     "tokei"
     "erdtree"
-    "cursor"
     "docker"
     "docker-compose"
-    "lazydocker"
-    "typescript"
     "eslint"
     "prettier"
+    "jj"
   )
 
   local -a taps=(
