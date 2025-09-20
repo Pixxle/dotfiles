@@ -84,6 +84,13 @@ install_packages() {
 
 # Install and setup zsh with Oh My Zsh
 setup_zsh() {
+
+  # Backup existing .zshrc
+  if [ -f "$HOME/.zshrc" ] && [ ! -f "$HOME/.zshrc.backup" ]; then
+    cp "$HOME/.zshrc" "$HOME/.zshrc.backup"
+    log_info "Backed up existing .zshrc"
+  fi
+
   log_info "Setting up zsh and Oh My Zsh..."
 
   SHELL_LOAD_LINE="source $CONFIG_DIR/shell/load.sh"
@@ -112,66 +119,6 @@ setup_zsh() {
     fi
   fi
 
-}
-
-# Setup custom .zshrc configuration
-setup_zshrc() {
-  log_info "Configuring .zshrc..."
-
-  # Backup existing .zshrc
-  if [ -f "$HOME/.zshrc" ] && [ ! -f "$HOME/.zshrc.backup" ]; then
-    cp "$HOME/.zshrc" "$HOME/.zshrc.backup"
-    log_info "Backed up existing .zshrc"
-  fi
-
-  # Create new .zshrc
-  cat >"$HOME/.zshrc" <<'EOF'
-# Path to your oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set theme
-ZSH_THEME="robbyrussell"
-
-# Plugins (git plugin enabled but aliases disabled)
-plugins=(git)
-
-# Disable git plugin aliases to use our custom ones
-DISABLE_AUTO_UPDATE="true"
-DISABLE_UPDATE_PROMPT="true"
-
-# Source Oh My Zsh
-source $ZSH/oh-my-zsh.sh
-
-# Disable Oh My Zsh git aliases
-disable_git_aliases() {
-    # Remove git aliases from Oh My Zsh git plugin
-    unalias -m 'g*' 2>/dev/null || true
-    unalias -m 'git*' 2>/dev/null || true
-    
-    # Remove numbered aliases (1-9) from Oh My Zsh
-    unalias -m '1' 2>/dev/null || true
-    unalias -m '2' 2>/dev/null || true
-    unalias -m '3' 2>/dev/null || true
-    unalias -m '4' 2>/dev/null || true
-    unalias -m '5' 2>/dev/null || true
-    unalias -m '6' 2>/dev/null || true
-    unalias -m '7' 2>/dev/null || true
-    unalias -m '8' 2>/dev/null || true
-    unalias -m '9' 2>/dev/null || true
-    
-    # Remove directory navigation aliases from Oh My Zsh
-    unalias -m '..*' 2>/dev/null || true
-    unalias -m '-' 2>/dev/null || true
-}
-
-# Call the function to disable git aliases
-disable_git_aliases
-
-# Load our custom configuration
-source ~/.config/shell/load.sh
-EOF
-
-  log_success ".zshrc configured"
 }
 
 setup_neovim() {
