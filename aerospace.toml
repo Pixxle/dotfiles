@@ -141,6 +141,6 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [mode.resize.binding]          # 2. Declare 'resize' binding mode
-minus = 'resize smart -50'
-equal = 'resize smart +50'
+alt-j = 'resize smart -50'
+alt-k = 'resize smart +50'
 esc = ['reload-config', 'mode main']
